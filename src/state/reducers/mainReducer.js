@@ -12,6 +12,7 @@ const initialState = {
 
 // Reducer
 const mainReducer = (state = initialState, action) => {
+  console.log("STATE CHANGES", state);
   switch (action.type) {
     case types.REGISTER_START:
       return {
