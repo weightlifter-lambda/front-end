@@ -3,20 +3,32 @@ import { withFormik, Form, Field } from "formik";
 // import { Yup } from "yup";
 // import { Route, NavLink } from "react-router-dom";
 import axios from "axios";
+
+import { connect } from "react-redux";
+import { register } from "../state/actions";
+
 import "../App.css";
 
-const SignUpForm = ({values, status}) => {
+const SignUpForm = ({ values, status }) => {
   console.log("values", values);
 
   const [users, setUsers] = useState([]);
-  
+
   useEffect(() => {
-    status && setUsers(...users)
+    status && setUsers(...users);
   }, [status]);
 
   return (
     <div className="signUp">
       <Form>
+        <label htmlFor="name">Name</label>
+        <Field
+          id="name"
+          type="text"
+          name="name"
+          placeholder="Your First Name"
+        />
+
         <label htmlFor="email">Email</label>
         <Field
           id="email"
@@ -34,7 +46,6 @@ const SignUpForm = ({values, status}) => {
         />
       </Form>
       <button type="submit">Submit</button>
-
     </div>
   );
 };
@@ -42,21 +53,28 @@ const SignUpForm = ({values, status}) => {
 const FormikSignUpForm = withFormik({
   mapPropsToValues(props) {
     return {
+      name: props.name || "",
       email: props.email || "",
       password: props.password || ""
     };
   },
-  
-  handleSubmit(values, {setStatus}) {
-    axios
-      .post("https://reqres.in/api/users", values)
-      .then(response => {
-        console.log(response);
-        setStatus(response.data)
-      })
-      .catch(err => console.log(err.response));
-  }
 
+  handleSubmit(values, { setStatus }, props) {
+    //   axios
+    //     .post("https://reqres.in/api/users", values)
+    //     .then(response => {
+    //       console.log(response);
+    //       setStatus(response.data);
+    //     })
+    //     .catch(err => console.log(err.response));
+    console.log(props.register);
+    props.register(values);
+  }
 })(SignUpForm);
 
-export default FormikSignUpForm;
+const mapStateToProps = state => {
+  return {
+    ...state
+  };
+};
+export default connect(mapStateToProps, { register })(FormikSignUpForm);
