@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import SignUpForm2 from "./components/SignUpForm2";
 import LoginForm from "./components/LoginForm";
+import Dashboard from "./components/Dashboard";
+
 
 function App() {
   return (
@@ -15,6 +17,11 @@ function App() {
           exact
           path="/register"
           render={props => <SignUpForm2 {...props} />}
+        />
+        <Route
+          exact
+          path="/dashboard"
+          render={props => <Dashboard {...props} />}
         />
       </Router>
     </div>
