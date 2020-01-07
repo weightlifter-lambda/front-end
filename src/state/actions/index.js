@@ -30,3 +30,8 @@ export const login = credentials => dispatch => {
     })
     .catch(err => console.log(err));
 };
+
+// export const logout = credentials => dispatch => {
+//     dispatch({ type: type.LOGOUT_START});
+//     return axiosWithAuth()
+// }

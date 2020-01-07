@@ -42,6 +42,18 @@ const mainReducer = (state = initialState, action) => {
         fetchingData: false,
         isLoggedIn: true
       };
+    case types.LOGOUT_START:
+      return {
+        ...state,
+        fetchingData: false,
+        isLoggedIn: true
+      };
+    case types.LOGOUT_SUCCESS:
+      return {
+        ...state,
+        fetchingData: false,
+        isLoggedIn: false
+      };
 
     default:
       return state;
