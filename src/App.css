@@ -37,12 +37,15 @@
   }
 }
 
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+.workoutForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.workoutForm div {
+  margin: 1%;
 }
 
 .dropdown {
@@ -69,5 +72,3 @@
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}

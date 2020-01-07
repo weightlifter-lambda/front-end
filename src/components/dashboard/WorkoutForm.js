@@ -3,7 +3,10 @@ import React, { useState } from "react";
 const WorkoutForm = () => {
   const [workout, setWorkout] = useState({
     exercise: "",
-    reps: ""
+    weight: "",
+    sets: "",
+    reps: "",
+    notes: "",
   });
 
   const handleChanges = e => {
@@ -17,7 +20,10 @@ const WorkoutForm = () => {
     const newWorkout = {
       id: Date.now(),
       exercise: workout.exercise,
-      reps: workout.reps
+      weight: workout.weight,
+      sets: workout.sets,
+      reps: workout.reps,
+      notes: workout.notes
     };
     setWorkout([...workout, newWorkout]);
   };
@@ -25,20 +31,30 @@ const WorkoutForm = () => {
   const submitForm = e => {
     e.preventDefault();
     addNewWorkout(workout);
-    setWorkout({ exercise: "", reps: "" });
+    setWorkout({ exercise: "", weight: "", sets: "", reps: "", notes: "" });
   };
 
   return (
-    <form onSubmit={submitForm}>
+    <form className="workoutForm" onSubmit={submitForm}>
+
     <div class="dropdown">
-  <button class="dropbtn">Dropdown</button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
-      <label htmlFor="title">Exercise</label>
+      <div class="dropbtn">Date V</div>
+        <div class="dropdown-content">
+          <a href="#">Date</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+      <div class="dropbtn">Muscle Group V</div>
+        <div class="dropdown-content">
+          <a href="#">Chest</a>
+          <a href="#">Back</a>
+          <a href="#">Legs</a>
+          <a href="#">Arms</a>
+        </div>
+    </div>
+
+      <label htmlFor="title">Chest</label>
       <input
         id="exercise"
         name="exercise"
@@ -47,14 +63,39 @@ const WorkoutForm = () => {
         onChange={handleChanges}
         value={workout.exercise}
       />
-      <label htmlFor="body">Reps</label>
-      <textarea
+      <input
+        id="weight"
+        name="weight"
+        type="text"
+        placeholder="Weight"
+        onChange={handleChanges}
+        value={workout.weight}
+      />
+      <input
+        id="sets"
+        name="sets"
+        type="text"
+        placeholder="Sets"
+        onChange={handleChanges}
+        value={workout.sets}
+      />
+      <input
         id="reps"
         name="reps"
+        type="text"
         placeholder="Reps"
         onChange={handleChanges}
         value={workout.reps}
       />
+      <input
+        id="notes"
+        name="notes"
+        type="text"
+        placeholder="Notes"
+        onChange={handleChanges}
+        value={workout.notes}
+      />
+
       <button type="submit">Add Workout</button>
     </form>
   );
