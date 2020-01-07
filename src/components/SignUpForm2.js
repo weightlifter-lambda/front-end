@@ -18,6 +18,7 @@ const SignUpForm2 = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.register(user);
+    props.history.push("/");
     setUser({
       first_name: "",
       email: "",
