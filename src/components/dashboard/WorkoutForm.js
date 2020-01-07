@@ -40,7 +40,8 @@ const WorkoutForm = () => {
     <div class="dropdown">
       <div class="dropbtn">Date V</div>
         <div class="dropdown-content">
-          <a href="#">Date</a>
+          <a href="#">Tuesday, January 7th, 2020</a>
+          <a href="#">Monday, January 6th, 2020</a>
         </div>
     </div>
 
