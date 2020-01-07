@@ -8,7 +8,7 @@ const SignUpForm2 = props => {
     email: "",
     password: ""
   });
-  console.log(user);
+  // console.log(user);
   const handleChanges = e => {
     setUser({
       ...user,

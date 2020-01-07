@@ -1,24 +1,23 @@
 import React from "react";
-import logo from "./logo.svg";
-import FormikSignUpForm from "./components/SignUpForm.js";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
 import SignUpForm2 from "./components/SignUpForm2";
 import LoginForm from "./components/LoginForm";
+import "./App.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Router>
-        <Route exact path="/login" render={props => <LoginForm {...props} />} />
-        <Route
-          exact
-          path="/register"
-          render={props => <SignUpForm2 {...props} />}
-        />
-      </Router>
-    </div>
+    <Router>
+      <div className="App">
+        <Link to="/register">Register</Link>
+        <Route exact path="/" render={props => <LoginForm {...props} />} />
+        <Route path="/register" render={props => <SignUpForm2 {...props} />} />
+        <Switch>
+          <PrivateRoute exact path="/dashboard" />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
