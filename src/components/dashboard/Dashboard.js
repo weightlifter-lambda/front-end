@@ -1,7 +1,7 @@
 import React from "react";
-// import WorkoutForm from "./WorkoutForm";
+import WorkoutForm from "./WorkoutForm";
 
-const Dashboard = () => {
+const Dashboard = props => {
   // const handleSubmit = e => {
   //   e.preventDefault();
   //   props.logout(user);
@@ -9,15 +9,21 @@ const Dashboard = () => {
   //     props.history.push("/");
   //   }, 800);
   // };
+
+  const signOut = () => {
+    localStorage.clear("token");
+    props.history.push("/");
+  };
+
   return (
     <div>
       <header>
         <h1>Workout Dashboard</h1>
       </header>
       {/* <form onSubmit={handleSubmit}> */}
-      <button> Sign Out</button>
+      <button onClick={signOut}> Sign Out</button>
       {/* <form> */}
-      {/* <WorkoutForm /> */}
+      <WorkoutForm />
     </div>
   );
 };
