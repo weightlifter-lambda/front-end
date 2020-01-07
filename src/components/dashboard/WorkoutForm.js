@@ -40,7 +40,7 @@ const WorkoutForm = () => {
     <form className="workoutForm" onSubmit={submitForm}>
 
     <div class="dropdown">
-      <div class="dropbtn">Date V</div>
+      <div class="dropbtn">Date <i class="arrow down"></i></div>
         <div class="dropdown-content">
           <a href="#">Tuesday, January 7th, 2020</a>
           <a href="#">Monday, January 6th, 2020</a>
@@ -48,7 +48,7 @@ const WorkoutForm = () => {
     </div>
 
     <div class="dropdown">
-      <div class="dropbtn">Muscle Group V</div>
+      <div class="dropbtn">Muscle Group <i class="arrow down"></i></div>
         <div class="dropdown-content">
           <a href="#">Chest</a>
           <a href="#">Back</a>
