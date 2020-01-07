@@ -41,7 +41,7 @@ const SignUpForm2 = props => {
     email: "",
     password: ""
   });
-  console.log(user);
+  // console.log(user);
   const handleChanges = e => {
     setUser({
       ...user,
@@ -51,6 +51,7 @@ const SignUpForm2 = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.register(user);
+    props.history.push("/");
     setUser({
       first_name: "",
       email: "",

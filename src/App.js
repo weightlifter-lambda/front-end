@@ -1,24 +1,37 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import PrivateRoute from "./components/PrivateRoute";
 import SignUpForm2 from "./components/SignUpForm2";
 import LoginForm from "./components/LoginForm";
-// import Footer from "./styled/footer";
+import Dashboard from "./components/dashboard/Dashboard";
+import "./App.css";
 
-function App() {
+const App = props => {
   return (
-    <div className="App">
-      <Router>
-        <Route exact path="/login" render={props => <LoginForm {...props} />} />
-        <Route
-          exact
-          path="/register"
-          render={props => <SignUpForm2 {...props} />}
-        />
-        {/* <Footer /> */}
-      </Router>
-    </div>
+    <Router>
+      <div className="App">
+        <Link to="/register">Register</Link>
+        <Route exact path="/" render={props => <LoginForm {...props} />} />
+        <Route path="/register" render={props => <SignUpForm2 {...props} />} />
+        <Switch>
+          <PrivateRoute
+            exact
+            path="/dashboard"
+            component={Dashboard}
+            isLoggedIn={props.isLoggedIn}
+          />
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
-export default App;
+const mapStateToProps = state => {
+  console.log("APP STATE", state);
+  return {
+    isLoggedIn: state.isLoggedIn
+  };
+};
+
+export default connect(mapStateToProps, {})(App);
