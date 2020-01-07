@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { register } from "../state/actions";
+import { login } from "../state/actions";
 
 const LoginForm = props => {
   const [user, setUser] = useState({
@@ -16,7 +16,7 @@ const LoginForm = props => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    props.register(user);
+    props.login(user);
     setUser({
       email: "",
       password: ""
@@ -44,4 +44,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { register })(LoginForm);
+export default connect(mapStateToProps, { login })(LoginForm);
