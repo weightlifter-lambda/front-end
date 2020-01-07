@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WorkoutCard from './WorkoutCard';
 
 const WorkoutForm = () => {
   const [workout, setWorkout] = useState({
@@ -35,6 +36,7 @@ const WorkoutForm = () => {
   };
 
   return (
+    <div className="workoutForm-container">
     <form className="workoutForm" onSubmit={submitForm}>
 
     <div class="dropdown">
@@ -99,6 +101,8 @@ const WorkoutForm = () => {
 
       <button type="submit">Add Exercise</button>
     </form>
+    <WorkoutCard />
+  </div>
   );
 };
 
