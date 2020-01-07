@@ -100,7 +100,6 @@ const WorkoutForm = () => {
       />
 
       <button type="submit">Add Exercise</button>
-      <WorkoutCard />
     </form>
     <WorkoutCard />
   </div>
