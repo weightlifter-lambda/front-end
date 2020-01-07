@@ -6,7 +6,6 @@ import "./App.css";
 import SignUpForm2 from "./components/SignUpForm2";
 import LoginForm from "./components/LoginForm";
 
-
 function App() {
   return (
     <div className="App">
@@ -16,11 +15,7 @@ function App() {
           path="/register"
           render={props => <SignUpForm2 {...props} />}
         />
-        <Route
-          exact
-          path="/login"
-          render={props => <LoginForm {...props} />}
-        />
+        <Route exact path="/login" render={props => <LoginForm {...props} />} />
       </Router>
     </div>
   );
