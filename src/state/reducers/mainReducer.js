@@ -5,15 +5,13 @@ import * as types from "../types";
 const initialState = {
   fetchingData: false,
   isLoggedIn: false,
-  error: "",
-  token: "",
-  id: ""
+  error: ""
 };
 
 // Reducer
 const mainReducer = (state = initialState, action) => {
   console.log("STATE CHANGES", state);
-  console.log(action.payload);
+  console.log("payload", action.payload);
   switch (action.type) {
     case types.REGISTER_START:
       return {
@@ -42,9 +40,7 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingData: false,
-        isLoggedIn: true,
-        token: action.payload,
-        id: action.id
+        isLoggedIn: true
       };
 
     default:

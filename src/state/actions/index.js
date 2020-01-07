@@ -11,7 +11,7 @@ export const register = credentials => dispatch => {
       dispatch({ type: types.REGISTER_SUCCESS });
     })
     .catch(err => {
-      console.log(err);
+      console.log("error", err);
       dispatch({ type: types.REGISTER_FAIL, payload: err });
     });
 };
@@ -25,8 +25,7 @@ export const login = credentials => dispatch => {
       localStorage.setItem("token", res.data.token);
       dispatch({
         type: types.LOGIN_SUCCESS,
-        payload: res.data.token,
-        id: res.data.id
+        payload: res.data.token
       });
     })
     .catch(err => console.log(err));
