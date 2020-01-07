@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NoteForm = props => {
+const WorkoutForm = () => {
   const [workout, setWorkout] = useState({
     exercise: "",
     reps: ""
@@ -52,4 +52,4 @@ const NoteForm = props => {
   );
 };
 
-export default NoteForm;
+export default WorkoutForm;

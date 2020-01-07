@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
-// import { Yup } from "yup";
 // import { Route, NavLink } from "react-router-dom";
-import axios from "axios";
 
 import { connect } from "react-redux";
 import { register } from "../state/actions";
