@@ -7,7 +7,7 @@ const LoginForm = props => {
     email: "",
     password: ""
   });
-  console.log(user);
+  // console.log(user);
   const handleChanges = e => {
     setUser({
       ...user,
@@ -17,10 +17,9 @@ const LoginForm = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.login(user);
-    setUser({
-      email: "",
-      password: ""
-    });
+    setTimeout(() => {
+      props.history.push("/dashboard");
+    }, 800);
   };
   return (
     <form onSubmit={handleSubmit}>
@@ -33,7 +32,7 @@ const LoginForm = props => {
         name="password"
         onChange={handleChanges}
       />
-      <button> Submit </button>
+      <button> Login </button>
     </form>
   );
 };
