@@ -96,7 +96,7 @@ const WorkoutForm = () => {
         value={workout.notes}
       />
 
-      <button type="submit">Add Workout</button>
+      <button type="submit">Add Exercise</button>
     </form>
   );
 };
