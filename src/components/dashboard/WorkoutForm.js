@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import WorkoutCard from './WorkoutCard';
 
 const WorkoutForm = () => {
   const [workout, setWorkout] = useState({
@@ -98,6 +99,7 @@ const WorkoutForm = () => {
       />
 
       <button type="submit">Add Exercise</button>
+      <WorkoutCard />
     </form>
   );
 };

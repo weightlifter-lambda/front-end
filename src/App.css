@@ -45,7 +45,7 @@
 }
 
 .workoutForm div {
-  margin: 1%;
+  margin: 1% 0%;
 }
 
 .dropdown {
@@ -72,3 +72,8 @@
 .dropdown-content a:hover {background-color: #ddd;}
 
 .dropdown:hover .dropdown-content {display: block;}
+
+ .workout-card {
+   border: 1px solid black;
+   padding: 0% 5%;
+ }
