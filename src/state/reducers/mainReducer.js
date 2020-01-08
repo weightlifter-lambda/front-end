@@ -8,7 +8,7 @@ const initialState = {
   addNewEx: false,
   error: "",
   id: "",
-  data: []
+  data: ""
 };
 
 // Reducer
@@ -63,13 +63,33 @@ const mainReducer = (state = initialState, action) => {
         id: ""
       };
 
-    case types.NEW_EXERSIZE_START:
+    case types.GET_EXERCISE_START:
+      return {
+        ...state,
+        fetchingData: true
+      };
+
+    case types.GET_EXERCISE_SUCCESS:
+      return {
+        ...state,
+        fetchingData: false,
+        data: action.payload,
+        error: ""
+      };
+
+    case types.GET_EXERCISE_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
+
+    case types.NEW_EXERCISE_START:
       return {
         ...state,
         addNewEx: true
       };
 
-    case types.NEW_EXERSIZE_SUCCESS:
+    case types.NEW_EXERCISE_SUCCESS:
       return {
         ...state,
         addNewEx: false,
@@ -77,7 +97,7 @@ const mainReducer = (state = initialState, action) => {
         error: ""
       };
 
-    case types.NEW_EXERSIZE_FAIL:
+    case types.NEW_EXERCISE_FAIL:
       return {
         ...state,
         error: action.payload
