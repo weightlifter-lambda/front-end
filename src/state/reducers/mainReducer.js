@@ -8,7 +8,8 @@ const initialState = {
   addNewEx: false,
   error: "",
   id: "",
-  data: []
+  data: [],
+  message: ""
 };
 
 // Reducer
@@ -132,6 +133,23 @@ const mainReducer = (state = initialState, action) => {
       };
 
     case types.NEW_JOURNAL_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
+
+    case types.DELETE_JOURNAL_START:
+      return {
+        ...state
+      };
+
+    case types.DELETE_JOURNAL_SUCCESS:
+      return {
+        ...state,
+        data: state.data.filter(i => action.payload !== i.id)
+      };
+
+    case types.DELETE_JOURNAL_FAIL:
       return {
         ...state,
         error: action.payload

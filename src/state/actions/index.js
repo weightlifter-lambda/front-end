@@ -60,8 +60,25 @@ export const newJournal = data => dispatch => {
   dispatch({ type: types.NEW_JOURNAL_START });
   return axiosWithAuth()
     .post("/journals", data)
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    .then(res =>
+      dispatch({ type: types.NEW_JOURNAL_SUCCESS, payload: res.data })
+    )
+    .catch(err =>
+      dispatch({ type: types.NEW_JOURNAL_FAIL, payload: err.data })
+    );
+};
+
+export const deleteJournal = data => dispatch => {
+  dispatch({ type: types.DELETE_JOURNAL_START });
+  return axiosWithAuth()
+    .delete(`/journals/${data}`)
+    .then(res => {
+      console.log("DELETED", res);
+      dispatch({ type: types.DELETE_JOURNAL_SUCCESS, payload: data });
+    })
+    .catch(err =>
+      dispatch({ type: types.DELETE_JOURNAL_FAIL, payload: err.data })
+    );
 };
 
 // EXERCISE

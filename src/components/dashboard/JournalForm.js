@@ -10,7 +10,6 @@ const JournalForm = props => {
     date: "",
     userId: id
   });
-  console.log(state);
 
   const handleChanges = e => {
     setState({
