@@ -60,8 +60,12 @@ export const newJournal = data => dispatch => {
   dispatch({ type: types.NEW_JOURNAL_START });
   return axiosWithAuth()
     .post("/journals", data)
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    .then(res =>
+      dispatch({ type: types.NEW_JOURNAL_SUCCESS, payload: res.data })
+    )
+    .catch(err =>
+      dispatch({ type: types.NEW_JOURNAL_FAIL, payload: err.data })
+    );
 };
 
 // EXERCISE

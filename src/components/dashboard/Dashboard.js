@@ -32,7 +32,6 @@ const Dashboard = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state.data);
   return {
     data: state.data
   };
