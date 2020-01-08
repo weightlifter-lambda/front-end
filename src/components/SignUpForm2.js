@@ -4,6 +4,15 @@ import { register } from "../state/actions";
 
 import styled, { ThemeProvider } from "styled-components";
 
+const theme = {
+  colors: {
+    yellow: "#FBB338",
+    grey_main: "grey",
+    grey_hilite: "",
+    blue: "#06A8FF"
+  }
+};
+
 const Container = styled.body`
   display: flex;
   flex-direction: column;
@@ -19,15 +28,32 @@ const Header = styled.header`
   border: 1px solid red;
 `;
 
-const LoginForms = styled.div`
+const Login = styled.div`
   display: flex;
   height: 50%;
-  width: 25%;
-  margin: 5em 0 5em 0;
+  width: 20%;
+  margin: 3em 0 5em 0;
   padding: 3rem;
   justify-content: center;
   align-items: center;
   border: 1px solid red;
+  border-radius: 10px;
+`;
+
+const Fields = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  font-family: "Russo One";
+  border: 1px solid red;
+`;
+
+const Button = styled.button`
+  font-family: "Russo One";
+  &:hover {
+    background: yellow;
+  }
 `;
 
 const Footer = styled.footer`
