@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { logout, getExercise } from "../../state/actions";
-import ExcersiseForm from "./ExerciseForm";
+import JournalForm from "./JournalForm";
 import ExerciseCard from "./ExerciseCard";
 
 const Dashboard = props => {
-  useEffect(() => {
-    props.getExercise();
-  }, []);
+  // useEffect(() => {
+  //   props.getExercise();
+  // }, []);
 
   const signOut = () => {
     localStorage.clear("token");
@@ -20,7 +20,7 @@ const Dashboard = props => {
       <header>
         <h1>Workout Dashboard</h1>
       </header>
-      <ExcersiseForm />
+      <JournalForm />
       <ExerciseCard />
       <button className="sign-out-btn" onClick={signOut}>
         {" "}

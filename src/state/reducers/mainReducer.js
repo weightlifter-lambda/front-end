@@ -103,6 +103,23 @@ const mainReducer = (state = initialState, action) => {
         error: action.payload
       };
 
+    case types.NEW_JOURNAL_START:
+      return {
+        ...state
+      };
+    case types.NEW_JOURNAL_SUCCESS:
+      return {
+        ...state,
+        data: [...state.data, action.payload],
+        error: ""
+      };
+
+    case types.NEW_JOURNAL_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
+
     default:
       return state;
   }

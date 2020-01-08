@@ -39,6 +39,14 @@ export const logout = () => {
   };
 };
 
+export const newJournal = data => dispatch => {
+  dispatch({ type: types.NEW_JOURNAL_START });
+  return axiosWithAuth()
+    .post("/journals", data)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+};
+
 export const getExercise = () => dispatch => {
   dispatch({ type: types.GET_EXERCISE_START });
   return axiosWithAuth()

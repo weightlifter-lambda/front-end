@@ -1,35 +1,42 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-const initialState = {
-  weight: "",
-  reps: "",
-  sets: ""
-};
+import { newJournal } from "../../state/actions";
 
 const JournalForm = props => {
-  const [state, setState] = useState(initialState);
-  const handleChanges = e => {};
+  const [id] = useState(props.id);
+  const [state, setState] = useState({
+    name: "",
+    date: "",
+    userId: id
+  });
+  console.log(state);
+
+  const handleChanges = e => {
+    setState({
+      ...state,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.newJournal(state);
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <input
         type="text"
-        name="weight"
+        name="name"
         onChange={handleChanges}
-        placeholder="weight"
+        placeholder="name"
       />
       <input
-        type="text"
-        name="reps"
+        type="date"
+        name="date"
         onChange={handleChanges}
-        placeholder="reps"
-      />
-      <input
-        type="text"
-        name="sets"
-        onChange={handleChanges}
-        placeholder="sets"
+        placeholder="date"
       />
       <button> Submit </button>
     </form>
@@ -42,4 +49,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(JournalForm);
+export default connect(mapStateToProps, { newJournal })(JournalForm);

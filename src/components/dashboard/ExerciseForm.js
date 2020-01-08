@@ -14,10 +14,6 @@ const ExerciseForm = props => {
   const handleChanges = e => {
     setExForm({
       ...exForm,
-      //   [e.target.name]:
-      //     e.target.name === "region"
-      //       ? e.target.value.toLowerCase()
-      //       : e.target.value
       [e.target.name]: e.target.value
     });
   };
