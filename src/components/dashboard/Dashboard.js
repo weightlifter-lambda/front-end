@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { logout, getExercise } from "../../state/actions";
+import { logout, getJournal } from "../../state/actions";
 import JournalForm from "./JournalForm";
-import ExerciseCard from "./ExerciseCard";
+import JournalEntry from "./JournalEntry";
 
 const Dashboard = props => {
-  // useEffect(() => {
-  //   props.getExercise();
-  // }, []);
+  useEffect(() => {
+    props.getJournal();
+  }, []);
 
   const signOut = () => {
     localStorage.clear("token");
@@ -21,9 +21,10 @@ const Dashboard = props => {
         <h1>Workout Dashboard</h1>
       </header>
       <JournalForm />
-      <ExerciseCard />
+      {props.data.map(i => (
+        <JournalEntry key={i.id} i={i} />
+      ))}
       <button className="sign-out-btn" onClick={signOut}>
-        {" "}
         Sign Out
       </button>
     </div>
@@ -31,9 +32,10 @@ const Dashboard = props => {
 };
 
 const mapStateToProps = state => {
+  console.log(state.data);
   return {
-    ...state
+    data: state.data
   };
 };
 
-export default connect(mapStateToProps, { logout, getExercise })(Dashboard);
+export default connect(mapStateToProps, { logout, getJournal })(Dashboard);

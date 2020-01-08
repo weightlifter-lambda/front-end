@@ -1,16 +1,15 @@
 import React from "react";
 import "../../App.css";
 
-
-const JournalEntry = () => {
+const JournalEntry = props => {
+  const { name, date } = props.i;
   return (
-        <div className="journal-entry">
-            <h1>Exercise Name</h1>
-            <p>Weigh</p>
-            <p>Sets</p>
-            <p>Reps</p>
-            <p>Notes</p>
-        </div>
+    <div className="journal-entry">
+      <h1>{name}</h1>
+      <p>{date}</p>
+      <button> edit </button>
+      <button> delete </button>
+    </div>
   );
 };
 

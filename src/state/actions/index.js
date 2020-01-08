@@ -2,6 +2,8 @@ import * as types from "../types";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import { bindActionCreators } from "redux";
 
+// USER
+
 export const register = credentials => dispatch => {
   console.log("actions", credentials);
   dispatch({ type: types.REGISTER_START });
@@ -39,6 +41,21 @@ export const logout = () => {
   };
 };
 
+// JOURNALS
+
+export const getJournal = () => dispatch => {
+  dispatch({ type: types.JOURNAL_START });
+  return axiosWithAuth()
+    .get("/journals")
+    .then(res => {
+      console.log("HELLO", res.data);
+      dispatch({ type: types.JOURNAL_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: types.JOURNAL_FAIL, payload: err.data });
+    });
+};
+
 export const newJournal = data => dispatch => {
   dispatch({ type: types.NEW_JOURNAL_START });
   return axiosWithAuth()
@@ -46,6 +63,8 @@ export const newJournal = data => dispatch => {
     .then(res => console.log(res))
     .catch(err => console.log(err));
 };
+
+// EXERCISE
 
 export const getExercise = () => dispatch => {
   dispatch({ type: types.GET_EXERCISE_START });
