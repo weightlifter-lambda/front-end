@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import "../../App.css";
 
-const ExerciseCard = () => {
+
+const WorkoutCard = () => {
   return (
     <div className="workout-card">
       <Link to="/entry">
@@ -14,4 +15,4 @@ const ExerciseCard = () => {
   );
 };
 
-export default ExerciseCard;
+export default WorkoutCard;
