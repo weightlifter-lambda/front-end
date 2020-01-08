@@ -33,7 +33,8 @@
 }
 
 .dashboard {
-  background-image: url('./img/header-weightlifting.jpg');
+  background-image: url('./img/dashboard.jpg');
+  height: 100vh;
   background-size: cover;  
   color: white;
 }

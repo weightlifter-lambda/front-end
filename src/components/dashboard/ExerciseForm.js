@@ -44,7 +44,7 @@ const ExerciseForm = props => {
         onChange={handleChanges}
         placeholder="Region"
       />
-      <button className="add-exercise-btn"> Add Excersize </button>
+      <button className="add-exercise-btn">Add Exercise</button>
     </form>
   );
 };

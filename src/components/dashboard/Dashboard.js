@@ -19,7 +19,7 @@ const Dashboard = props => {
       </header>
       <ExerciseForm />
       <ExerciseCard />
-      <button className='sign-out-btn' onClick={signOut}> Sign Out</button>
+      <button className='sign-out-btn' onClick={signOut}>Sign Out</button>
     </div>
   );
 };
