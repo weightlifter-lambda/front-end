@@ -8,7 +8,7 @@ const initialState = {
   addNewEx: false,
   error: "",
   id: "",
-  data: ""
+  data: []
 };
 
 // Reducer
@@ -63,41 +63,75 @@ const mainReducer = (state = initialState, action) => {
         id: ""
       };
 
-    case types.GET_EXERCISE_START:
-      return {
-        ...state,
-        fetchingData: true
-      };
+    // case types.GET_EXERCISE_START:
+    //   return {
+    //     ...state,
+    //     fetchingData: true
+    //   };
 
-    case types.GET_EXERCISE_SUCCESS:
+    // case types.GET_EXERCISE_SUCCESS:
+    //   return {
+    //     ...state,
+    //     fetchingData: false,
+    //     data: action.payload,
+    //     error: ""
+    //   };
+
+    // case types.GET_EXERCISE_FAIL:
+    //   return {
+    //     ...state,
+    //     error: action.payload
+    //   };
+
+    // case types.NEW_EXERCISE_START:
+    //   return {
+    //     ...state,
+    //     addNewEx: true
+    //   };
+
+    // case types.NEW_EXERCISE_SUCCESS:
+    //   return {
+    //     ...state,
+    //     addNewEx: false,
+    //     data: [...state.data, action.payload],
+    //     error: ""
+    //   };
+
+    // case types.NEW_EXERCISE_FAIL:
+    //   return {
+    //     ...state,
+    //     error: action.payload
+    //   };
+
+    case types.JOURNAL_START:
+      return {
+        ...state
+      };
+    case types.JOURNAL_SUCCESS:
       return {
         ...state,
-        fetchingData: false,
         data: action.payload,
         error: ""
       };
 
-    case types.GET_EXERCISE_FAIL:
+    case types.JOURNAL_FAIL:
       return {
         ...state,
         error: action.payload
       };
 
-    case types.NEW_EXERCISE_START:
+    case types.NEW_JOURNAL_START:
       return {
-        ...state,
-        addNewEx: true
+        ...state
       };
-
-    case types.NEW_EXERCISE_SUCCESS:
+    case types.NEW_JOURNAL_SUCCESS:
       return {
         ...state,
-        addNewEx: false,
         data: [...state.data, action.payload],
         error: ""
       };
 
-    case types.NEW_EXERCISE_FAIL:
+    case types.NEW_JOURNAL_FAIL:
       return {
         ...state,
         error: action.payload
