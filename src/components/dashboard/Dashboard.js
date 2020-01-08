@@ -1,23 +1,30 @@
 import React from "react";
-import WorkoutForm from "./WorkoutForm";
+import { connect } from "react-redux";
+import { logout } from "../../state/actions";
+import ExcersizeForm from "./ExerciseForm";
 
 const Dashboard = props => {
-
   const signOut = () => {
     localStorage.clear("token");
+    props.logout();
     props.history.push("/");
   };
-
 
   return (
     <div>
       <header>
         <h1>Workout Dashboard</h1>
       </header>
-      <WorkoutForm />
-      <button onClick={signOut}> Sign out </button>
+      <button onClick={signOut}> Sign Out</button>
+      <ExcersizeForm />
     </div>
   );
 };
 
-export default Dashboard;
+const mapStateToProps = state => {
+  return {
+    ...state
+  };
+};
+
+export default connect(mapStateToProps, { logout })(Dashboard);

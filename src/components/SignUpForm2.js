@@ -4,7 +4,8 @@ import { register } from "../state/actions";
 
 const SignUpForm2 = props => {
   const [user, setUser] = useState({
-    first_name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: ""
   });
@@ -27,11 +28,18 @@ const SignUpForm2 = props => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label>Name</label>
+      <label>First Name</label>
       <input
         type="text"
-        id="first_name"
-        name="first_name"
+        id="firstName"
+        name="firstName"
+        onChange={handleChanges}
+      />
+      <label>Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
         onChange={handleChanges}
       />
       <label>Email</label>
