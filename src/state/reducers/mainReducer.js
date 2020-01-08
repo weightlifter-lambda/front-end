@@ -73,7 +73,7 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         addNewEx: false,
-        data: [action.payload],
+        data: [...state.data, action.payload],
         error: ""
       };
 
