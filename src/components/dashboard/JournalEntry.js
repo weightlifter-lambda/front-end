@@ -2,10 +2,10 @@ import React from "react";
 import "../../App.css";
 
 
-const JournalEntries = () => {
+const JournalEntry = () => {
   return (
-        <div className="journal-entries">
-            <h1>Name</h1>
+        <div className="journal-entry">
+            <h1>Bench Press</h1>
             <p>185</p>
             <p>5 sets</p>
             <p>10 reps</p>
@@ -14,4 +14,4 @@ const JournalEntries = () => {
   );
 };
 
-export default JournalEntries;
+export default JournalEntry;
