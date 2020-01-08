@@ -5,7 +5,7 @@ export const register = credentials => dispatch => {
   console.log("actions", credentials);
   dispatch({ type: types.REGISTER_START });
   return axiosWithAuth()
-    .post(`/auth/signup`, credentials)
+    .post(`/auth/register`, credentials)
     .then(res => {
       console.log(res);
       dispatch({ type: types.REGISTER_SUCCESS });
