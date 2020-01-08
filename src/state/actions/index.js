@@ -1,5 +1,6 @@
 import * as types from "../types";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import { bindActionCreators } from "redux";
 
 export const register = credentials => dispatch => {
   console.log("actions", credentials);
@@ -38,15 +39,26 @@ export const logout = () => {
   };
 };
 
-export const newExersize = payload => dispatch => {
+export const getExercise = () => dispatch => {
+  dispatch({ type: types.GET_EXERCISE_START });
+  return axiosWithAuth()
+    .get("/exercises")
+    .then(res => {
+      console.log(res);
+      dispatch({ type: types.GET_EXERCISE_SUCCESS, payload: res.data });
+    })
+    .catch(err => console.log(err));
+};
+
+export const newExercise = payload => dispatch => {
   console.log("NEW EX", payload);
-  dispatch({ type: types.NEW_EXERSIZE_START });
+  dispatch({ type: types.NEW_EXERCISE_START });
   return axiosWithAuth()
     .post("/exercises", payload)
     .then(res => {
-      dispatch({ type: types.NEW_EXERSIZE_SUCCESS, payload: res.data });
+      dispatch({ type: types.NEW_EXERCISE_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: types.NEW_EXERSIZE_FAIL, payload: err.data });
+      dispatch({ type: types.NEW_EXERCISE_FAIL, payload: err.data });
     });
 };

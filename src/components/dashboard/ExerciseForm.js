@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 
-import { newExersize } from "../../state/actions";
+import { newExercise } from "../../state/actions";
 
 const initialState = {
   name: "",
@@ -24,7 +24,7 @@ const ExerciseForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.newExersize(exForm);
+    props.newExercise(exForm);
     setExForm(initialState);
   };
 
@@ -44,7 +44,7 @@ const ExerciseForm = props => {
         onChange={handleChanges}
         placeholder="Region"
       />
-      <button className="add-exercise-btn">Add Exercise</button>
+      <button> Add Exercize </button>
     </form>
   );
 };
@@ -54,4 +54,4 @@ const mapStateTopProps = state => {
     ...state
   };
 };
-export default connect(mapStateTopProps, { newExersize })(ExerciseForm);
+export default connect(mapStateTopProps, { newExercise })(ExerciseForm);
