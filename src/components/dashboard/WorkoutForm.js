@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import WorkoutCard from "./WorkoutCard";
 
 const WorkoutForm = () => {
   const [workout, setWorkout] = useState({
     exercise: "",
-    reps: ""
+    weight: "",
+    sets: "",
+    reps: "",
+    notes: ""
   });
 
   const handleChanges = e => {
@@ -17,7 +21,10 @@ const WorkoutForm = () => {
     const newWorkout = {
       id: Date.now(),
       exercise: workout.exercise,
-      reps: workout.reps
+      weight: workout.weight,
+      sets: workout.sets,
+      reps: workout.reps,
+      notes: workout.notes
     };
     setWorkout([...workout, newWorkout]);
   };
@@ -25,30 +32,79 @@ const WorkoutForm = () => {
   const submitForm = e => {
     e.preventDefault();
     addNewWorkout(workout);
-    setWorkout({ exercise: "", reps: "" });
+    setWorkout({ exercise: "", weight: "", sets: "", reps: "", notes: "" });
   };
 
   return (
-    <form onSubmit={submitForm}>
-      <label htmlFor="title">Exercise</label>
-      <input
-        id="exercise"
-        name="exercise"
-        type="text"
-        placeholder="Exercise"
-        onChange={handleChanges}
-        value={workout.exercise}
-      />
-      <label htmlFor="body">Reps</label>
-      <textarea
-        id="reps"
-        name="reps"
-        placeholder="Reps"
-        onChange={handleChanges}
-        value={workout.reps}
-      />
-      <button type="submit">Add Workout</button>
-    </form>
+    <div className="workoutForm-container">
+      <form className="workoutForm" onSubmit={submitForm}>
+        <div className="dropdown">
+          <div className="dropbtn">
+            Date <i className="arrow down"></i>
+          </div>
+          <div className="dropdown-content">
+            <a href="#">Tuesday, January 7th, 2020</a>
+            <a href="#">Monday, January 6th, 2020</a>
+          </div>
+        </div>
+
+        <div className="dropdown">
+          <div className="dropbtn">
+            Muscle Group <i className="arrow down"></i>
+          </div>
+          <div className="dropdown-content">
+            <a href="#">Chest</a>
+            <a href="#">Back</a>
+            <a href="#">Legs</a>
+            <a href="#">Arms</a>
+          </div>
+        </div>
+
+        <label htmlFor="title">Chest</label>
+        <input
+          id="exercise"
+          name="exercise"
+          type="text"
+          placeholder="Exercise"
+          onChange={handleChanges}
+          value={workout.exercise}
+        />
+        <input
+          id="weight"
+          name="weight"
+          type="text"
+          placeholder="Weight"
+          onChange={handleChanges}
+          value={workout.weight}
+        />
+        <input
+          id="sets"
+          name="sets"
+          type="text"
+          placeholder="Sets"
+          onChange={handleChanges}
+          value={workout.sets}
+        />
+        <input
+          id="reps"
+          name="reps"
+          type="text"
+          placeholder="Reps"
+          onChange={handleChanges}
+          value={workout.reps}
+        />
+        <input
+          id="notes"
+          name="notes"
+          type="text"
+          placeholder="Notes"
+          onChange={handleChanges}
+          value={workout.notes}
+        />
+        <button type="submit">Add Exercise</button>
+      </form>
+      <WorkoutCard />
+    </div>
   );
 };
 

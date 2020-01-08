@@ -39,7 +39,8 @@ const Footer = styled.footer`
 
 const SignUpForm2 = props => {
   const [user, setUser] = useState({
-    first_name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: ""
   });
@@ -61,46 +62,32 @@ const SignUpForm2 = props => {
     });
   };
   return (
-    <Container>
-      <Header>Header</Header>
-      <LoginForms>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Name </label>
-            <input
-              type="text"
-              id="first_name"
-              name="first_name"
-              placeholder="John Doe"
-              onChange={handleChanges}
-            />
-          </div>
-          <div>
-            <label>Email </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="johndoe@gmail.com"
-              onChange={handleChanges}
-            />
-          </div>
-          <div>
-            <label>Password </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              placeholder="min. 8 characters"
-              onChange={handleChanges}
-            />
-          </div>
-
-          <button> Register </button>
-        </form>
-      </LoginForms>
-      <Footer>Footer</Footer>
-    </Container>
+    <form onSubmit={handleSubmit}>
+      <label>First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        onChange={handleChanges}
+      />
+      <label>Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        onChange={handleChanges}
+      />
+      <label>Email</label>
+      <input type="email" id="email" name="email" onChange={handleChanges} />
+      <label>Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        onChange={handleChanges}
+      />
+      <button> Register </button>
+    </form>
   );
 };
 
