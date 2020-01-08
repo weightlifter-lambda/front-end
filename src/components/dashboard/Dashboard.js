@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../../state/actions";
 import ExcersizeForm from "./ExerciseForm";
+import ExerciseCard from "./ExerciseCard";
+
 
 const Dashboard = props => {
   const signOut = () => {
@@ -11,12 +13,13 @@ const Dashboard = props => {
   };
 
   return (
-    <div>
+    <div className="dashboard">
       <header>
         <h1>Workout Dashboard</h1>
       </header>
-      <button onClick={signOut}> Sign Out</button>
       <ExcersizeForm />
+      <ExerciseCard />
+      <button className='sign-out-btn' onClick={signOut}> Sign Out</button>
     </div>
   );
 };

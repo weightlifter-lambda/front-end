@@ -8,7 +8,7 @@ const initialState = {
   region: ""
 };
 
-const ExcersizeForm = props => {
+const ExerciseForm = props => {
   const [exForm, setExForm] = useState(initialState);
   console.log(exForm);
   const handleChanges = e => {
@@ -29,20 +29,20 @@ const ExcersizeForm = props => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="exercise-form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="name"
         id="name"
         onChange={handleChanges}
-        placeholder="Name of Exersize"
+        placeholder="Exercise"
       />
       <input
         type="text"
         name="region"
         id="region"
         onChange={handleChanges}
-        placeholder="Name of Region"
+        placeholder="Region"
       />
       <button> Add Excersize </button>
     </form>
@@ -54,4 +54,4 @@ const mapStateTopProps = state => {
     ...state
   };
 };
-export default connect(mapStateTopProps, { newExersize })(ExcersizeForm);
+export default connect(mapStateTopProps, { newExersize })(ExerciseForm);

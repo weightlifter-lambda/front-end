@@ -31,20 +31,25 @@
     transform: rotate(360deg);
   }
 }
-.workoutForm-container {
-  margin: auto;
-  width: 25%;
+
+.dashboard {
+  background-image: url('./img/header-weightlifting.jpg');
+  background-size: cover;  
+  color: white;
 }
-.workoutForm {
+
+/* Exercise Form */
+.exercise-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid black;
   padding: 0% 5%;
 }
-.workoutForm div {
-  margin: 1% 0%;
+.exercise-form input {
+  margin : 1%;
 }
+
+/* Dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -75,7 +80,33 @@ i {
 }
 .dropdown-content a:hover {background-color: #ddd;}
 .dropdown:hover .dropdown-content {display: block;}
+
+/* Exercise Card */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
  .workout-card {
-   border: 1px solid black;
-   margin: 10%;
+   border: 1px solid white;
+   margin: 1%;
+   width: 20%;
+   text-decoration: none;
+ }
+
+ .workout-card-link {
+    text-decoration: none;
+    color: white;
+ }
+ 
+ /* Sign Out */
+ .sign-out-btn {
+   width: 150px;
+   padding: 1%;
+   margin: 2%;
+   font-size: 18px;
+   background-color: #06A8FF;
+   border: none;
+   border-radius: 50px;
+   color:white;
  }

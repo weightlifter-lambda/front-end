@@ -1,78 +1,65 @@
-import React, { useState, useEffect } from "react";
-import { withFormik, Form, Field } from "formik";
-// import { Route, NavLink } from "react-router-dom";
-
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { register } from "../state/actions";
 
-import "../App.css";
-
-const SignUpForm = ({ values, status }) => {
-  console.log("values", values);
-
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    status && setUsers(...users);
-  }, [status]);
-
+const SignUpForm2 = props => {
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: ""
+  });
+  // console.log(user);
+  const handleChanges = e => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value
+    });
+  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    props.register(user);
+    props.history.push("/");
+    setUser({
+      first_name: "",
+      email: "",
+      password: ""
+    });
+  };
   return (
-    <div className="signUp">
-      <Form>
-        <label htmlFor="name">Name</label>
-        <Field
-          id="name"
-          type="text"
-          name="name"
-          placeholder="Your First Name"
-        />
-
-        <label htmlFor="email">Email</label>
-        <Field
-          id="email"
-          type="text"
-          name="email"
-          placeholder="JohnnyAppleseed@gmail.com"
-        />
-
-        <label htmlFor="password">Password</label>
-        <Field
-          id="password"
-          type="text"
-          name="password"
-          placeholder="password"
-        />
-      </Form>
-      <button type="submit">Submit</button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <label>First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        name="firstName"
+        onChange={handleChanges}
+      />
+      <label>Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        name="lastName"
+        onChange={handleChanges}
+      />
+      <label>Email</label>
+      <input type="email" id="email" name="email" onChange={handleChanges} />
+      <label>Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        onChange={handleChanges}
+      />
+      <button> Register </button>
+    </form>
   );
 };
-
-const FormikSignUpForm = withFormik({
-  mapPropsToValues(props) {
-    return {
-      name: props.name || "",
-      email: props.email || "",
-      password: props.password || ""
-    };
-  },
-
-  handleSubmit(values, { setStatus }, props) {
-    //   axios
-    //     .post("https://reqres.in/api/users", values)
-    //     .then(response => {
-    //       console.log(response);
-    //       setStatus(response.data);
-    //     })
-    //     .catch(err => console.log(err.response));
-    console.log(props.register);
-    props.register(values);
-  }
-})(SignUpForm);
 
 const mapStateToProps = state => {
   return {
     ...state
   };
 };
-export default connect(mapStateToProps, { register })(FormikSignUpForm);
+
+export default connect(mapStateToProps, { register })(SignUpForm2);
