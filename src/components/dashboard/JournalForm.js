@@ -25,20 +25,29 @@ const JournalForm = props => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="journal-form" onSubmit={handleSubmit}>
+    <div className="input-container">
+      <label>Name:</label>
       <input
+        className="journal-form-input"
         type="text"
         name="name"
         onChange={handleChanges}
-        placeholder="name"
+        placeholder="Name"
       />
+    </div>
+
+    <div className="input-container">
+      <label>Date:</label>
       <input
+        className="journal-form-input"
         type="date"
         name="date"
         onChange={handleChanges}
         placeholder="date"
       />
-      <button> Submit </button>
+      </div>
+      <button className="journal-form-btn">Submit</button>
     </form>
   );
 };

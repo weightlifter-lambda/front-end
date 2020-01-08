@@ -110,6 +110,51 @@ i {
    text-decoration: none;
  }
 
+ .journal-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ }
+
+ .journal-form-input {
+   height: 30px;
+   width: 200px;
+ }
+
+ .input-container {
+    margin: 1%;
+    width: 50%;
+ }
+
+ .input-container label {
+   margin-right: 1%;
+ }
+
+ .journal-form-btn {
+  width: 150px;
+  padding: 1% 0%;
+  margin: 2%;
+  font-size: 12px;
+  background-color: #06A8FF;
+  border: none;
+  border-radius: 50px;
+  color:white;
+ }
+
+ .journal-entry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2% auto;
+   width: 25%; 
+   border: 1px solid white;
+ }
+
+ .journal-form-container {
+  display: flex;
+  align-items: center;
+ }
+
  .workout-card-link {
     text-decoration: none;
     color: white;
