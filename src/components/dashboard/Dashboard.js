@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { logout } from "../../state/actions";
-import ExcersizeForm from "./ExerciseForm";
+import ExerciseForm from "./ExerciseForm";
 import ExerciseCard from "./ExerciseCard";
 
 
@@ -17,7 +17,7 @@ const Dashboard = props => {
       <header>
         <h1>Workout Dashboard</h1>
       </header>
-      <ExcersizeForm />
+      <ExerciseForm />
       <ExerciseCard />
       <button className='sign-out-btn' onClick={signOut}> Sign Out</button>
     </div>
