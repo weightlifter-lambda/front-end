@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { logout } from "../../state/actions";
-import ExcersizeForm from "./ExerciseForm";
+import { logout, getExercise } from "../../state/actions";
+import ExcersiseForm from "./ExerciseForm";
 import ExerciseCard from "./ExerciseCard";
 
-
 const Dashboard = props => {
+  useEffect(() => {
+    props.getExercise();
+  }, []);
+
   const signOut = () => {
     localStorage.clear("token");
     props.logout();
@@ -17,9 +20,12 @@ const Dashboard = props => {
       <header>
         <h1>Workout Dashboard</h1>
       </header>
-      <ExcersizeForm />
+      <ExcersiseForm />
       <ExerciseCard />
-      <button className='sign-out-btn' onClick={signOut}> Sign Out</button>
+      <button className="sign-out-btn" onClick={signOut}>
+        {" "}
+        Sign Out
+      </button>
     </div>
   );
 };
@@ -30,4 +36,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { logout })(Dashboard);
+export default connect(mapStateToProps, { logout, getExercise })(Dashboard);
