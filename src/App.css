@@ -97,12 +97,12 @@ i {
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Exercise Card */
-.card-container {
+.journal-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
- .workout-card {
+ .journal-card {
    border: 1px solid white;
    border-radius: 10px;
    margin: 1%;
