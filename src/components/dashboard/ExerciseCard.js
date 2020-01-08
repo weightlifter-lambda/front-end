@@ -6,7 +6,7 @@ import "../../App.css";
 const WorkoutCard = () => {
   return (
     <div className="workout-card">
-      <Link to="/entry">
+      <Link to="/entry" style={{ textDecoration: 'none', color: 'black' }}>
           <h1>Name</h1>
           <h2>Region</h2>  
       </Link>
