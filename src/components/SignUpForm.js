@@ -60,7 +60,13 @@ const SignUpForm = props => {
     email: "",
     password: ""
   });
-  // console.log(user);
+
+  const validateForm = () => {
+    if(user.email.length < 5 || user.password.length < 5) {
+      alert('You must enter a valid email and password');
+    }
+  }
+
   const handleChanges = e => {
     setUser({
       ...user,
@@ -112,7 +118,7 @@ const SignUpForm = props => {
               onChange={handleChanges}
             />
           </Fields>
-          <Button> Register </Button>
+          <Button onClick={validateForm}> Register </Button>
         </form>
       </Login>
       <Footer>footer</Footer>
