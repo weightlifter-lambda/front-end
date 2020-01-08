@@ -5,11 +5,11 @@ import "../../App.css";
 const JournalEntry = () => {
   return (
         <div className="journal-entry">
-            <h1>Bench Press</h1>
-            <p>185</p>
-            <p>5 sets</p>
-            <p>10 reps</p>
-            <p>Notes: Very heavy!</p>
+            <h1>Exercise Name</h1>
+            <p>Weigh</p>
+            <p>Sets</p>
+            <p>Reps</p>
+            <p>Notes</p>
         </div>
   );
 };
