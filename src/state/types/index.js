@@ -12,3 +12,8 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 
 // Logout
 export const LOGOUT = "LOGOUT";
+
+// POST new exersize
+export const NEW_EXERSIZE_START = "NEW_EXERSIZE_START";
+export const NEW_EXERSIZE_SUCCESS = "NEW_EXERSIZE_SUCCESS";
+export const NEW_EXERSIZE_FAIL = "NEW_EXERSIZE_FAIL";

@@ -12,7 +12,7 @@ export const register = credentials => dispatch => {
     })
     .catch(err => {
       console.log("error", err);
-      dispatch({ type: types.REGISTER_FAIL, payload: err });
+      dispatch({ type: types.REGISTER_FAIL, payload: err.data });
     });
 };
 
@@ -36,4 +36,17 @@ export const logout = () => {
   return {
     type: types.LOGOUT
   };
+};
+
+export const newExersize = payload => dispatch => {
+  console.log("NEW EX", payload);
+  dispatch({ type: types.NEW_EXERSIZE_START });
+  return axiosWithAuth()
+    .post("/exercises", payload)
+    .then(res => {
+      dispatch({ type: types.NEW_EXERSIZE_SUCCESS, payload: res.data });
+    })
+    .catch(err => {
+      dispatch({ type: types.NEW_EXERSIZE_FAIL, payload: err.data });
+    });
 };

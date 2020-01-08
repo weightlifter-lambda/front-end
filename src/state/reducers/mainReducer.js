@@ -5,8 +5,10 @@ import * as types from "../types";
 const initialState = {
   fetchingData: false,
   isLoggedIn: false,
+  addNewEx: false,
   error: "",
-  id: ""
+  id: "",
+  data: []
 };
 
 // Reducer
@@ -44,12 +46,41 @@ const mainReducer = (state = initialState, action) => {
         isLoggedIn: true,
         id: action.id
       };
+
+    case types.LOGIN_FAIL:
+      return {
+        ...state,
+        fetchingData: false,
+        isLoggedIn: false,
+        error: action.payload
+      };
+
     case types.LOGOUT:
       return {
         ...state,
         fetchingData: false,
         isLoggedIn: false,
         id: ""
+      };
+
+    case types.NEW_EXERSIZE_START:
+      return {
+        ...state,
+        addNewEx: true
+      };
+
+    case types.NEW_EXERSIZE_SUCCESS:
+      return {
+        ...state,
+        addNewEx: false,
+        data: [action.payload],
+        error: ""
+      };
+
+    case types.NEW_EXERSIZE_FAIL:
+      return {
+        ...state,
+        error: action.payload
       };
 
     default:

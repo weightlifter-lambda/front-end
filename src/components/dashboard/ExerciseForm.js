@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+
+import { newExersize } from "../../state/actions";
 
 const initialState = {
   name: "",
@@ -7,16 +10,21 @@ const initialState = {
 
 const ExcersizeForm = props => {
   const [exForm, setExForm] = useState(initialState);
-
+  console.log(exForm);
   const handleChanges = e => {
     setExForm({
       ...exForm,
+      //   [e.target.name]:
+      //     e.target.name === "region"
+      //       ? e.target.value.toLowerCase()
+      //       : e.target.value
       [e.target.name]: e.target.value
     });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+    props.newExersize(exForm);
     setExForm(initialState);
   };
 
@@ -41,4 +49,9 @@ const ExcersizeForm = props => {
   );
 };
 
-export default ExcersizeForm;
+const mapStateTopProps = state => {
+  return {
+    ...state
+  };
+};
+export default connect(mapStateTopProps, { newExersize })(ExcersizeForm);
