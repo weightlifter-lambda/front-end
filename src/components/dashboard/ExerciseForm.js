@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import WorkoutCard from './WorkoutCard';
 
-const WorkoutForm = () => {
+const ExerciseForm = () => {
   const [workout, setWorkout] = useState({
     exercise: "",
     weight: "",
@@ -101,9 +100,8 @@ const WorkoutForm = () => {
 
       <button type="submit">Add Exercise</button>
     </form>
-    <WorkoutCard />
   </div>
   );
 };
 
-export default WorkoutForm;
+export default ExerciseForm;

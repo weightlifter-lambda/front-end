@@ -2,11 +2,10 @@ import React from "react";
 import "../../App.css";
 
 
-const WorkoutCard = () => {
+const JournalEntries = () => {
   return (
-        <div className="workout-card">
-            <h1>Chest</h1>
-            <h2>Bench Press</h2>
+        <div className="journal-entries">
+            <h1>Name</h1>
             <p>185</p>
             <p>5 sets</p>
             <p>10 reps</p>
@@ -15,4 +14,4 @@ const WorkoutCard = () => {
   );
 };
 
-export default WorkoutCard;
+export default JournalEntries;

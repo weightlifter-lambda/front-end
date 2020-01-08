@@ -1,5 +1,6 @@
 import React from "react";
-import WorkoutForm from "./WorkoutForm";
+import ExerciseForm from "./ExerciseForm";
+import ExerciseCard from './ExerciseCard';
 
 const Dashboard = props => {
 
@@ -14,7 +15,8 @@ const Dashboard = props => {
       <header>
         <h1>Workout Dashboard</h1>
       </header>
-      <WorkoutForm />
+      <ExerciseForm />
+      <ExerciseCard />
       <button onClick={signOut}> Sign out </button>
     </div>
   );

@@ -75,7 +75,14 @@ i {
 }
 .dropdown-content a:hover {background-color: #ddd;}
 .dropdown:hover .dropdown-content {display: block;}
+
  .workout-card {
    border: 1px solid black;
-   margin: 10%;
+   width: 25%;
+   margin: 5% auto;
+   text-decoration: none;
  }
+
+ .workout-card {
+  color: black;
+}
