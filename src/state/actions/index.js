@@ -25,13 +25,15 @@ export const login = credentials => dispatch => {
       localStorage.setItem("token", res.data.token);
       dispatch({
         type: types.LOGIN_SUCCESS,
-        payload: res.data.token
+        payload: res.data.token,
+        id: res.data.id
       });
     })
     .catch(err => console.log(err));
 };
 
-// export const logout = credentials => dispatch => {
-//     dispatch({ type: type.LOGOUT_START});
-//     return axiosWithAuth()
-// }
+export const logout = () => {
+  return {
+    type: types.LOGOUT
+  };
+};

@@ -5,7 +5,8 @@ import * as types from "../types";
 const initialState = {
   fetchingData: false,
   isLoggedIn: false,
-  error: ""
+  error: "",
+  id: ""
 };
 
 // Reducer
@@ -40,19 +41,15 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingData: false,
-        isLoggedIn: true
+        isLoggedIn: true,
+        id: action.id
       };
-    case types.LOGOUT_START:
+    case types.LOGOUT:
       return {
         ...state,
         fetchingData: false,
-        isLoggedIn: true
-      };
-    case types.LOGOUT_SUCCESS:
-      return {
-        ...state,
-        fetchingData: false,
-        isLoggedIn: false
+        isLoggedIn: false,
+        id: ""
       };
 
     default:
