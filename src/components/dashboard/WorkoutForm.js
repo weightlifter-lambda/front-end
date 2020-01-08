@@ -101,9 +101,7 @@ const WorkoutForm = () => {
           onChange={handleChanges}
           value={workout.notes}
         />
-
         <button type="submit">Add Exercise</button>
-        <WorkoutCard />
       </form>
       <WorkoutCard />
     </div>
