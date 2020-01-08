@@ -4,37 +4,39 @@ import { register } from "../state/actions";
 
 import styled, { ThemeProvider } from "styled-components";
 
-const theme = {
-  primary: "#FBB338",
-  secondary: "grey",
-  font: "Ubuntu"
-};
-
 const Container = styled.body`
   display: flex;
+  height: 100vh;
+  width: 100vw;
   justify-content: center;
-  height: 200px;
-  width: 50%;
+`;
+
+const Header = styled.header`
+  display: flex;
+  height: 20%;
+  width: 100%;
+  border: 1px solid red;
   background: grey;
-  margin: auto;
-  margin-top: 8em;
+`;
+
+const LoginForms = styled.div`
+  display: flex;
+  height: 50%;
+  width: 50%;
+  margin: 5em;
+  padding: 3rem;
+  justify-content: center;
+  align-items: center;
+
   border: 1px solid red;
 `;
 
-const Labels = styled.div`
+const Footer = styled.footer`
   display: flex;
-  margin: 3em;
 
-  font-family: "Ubuntu";
-  color: white;
+  border: 1px solid blue;
 `;
 
-const Button = styled.button`
-  font-size: 1rem;
-  &:hover {
-    background: #fbb338;
-  }
-`;
 const SignUpForm2 = props => {
   const [user, setUser] = useState({
     first_name: "",
@@ -60,37 +62,44 @@ const SignUpForm2 = props => {
   };
   return (
     <Container>
-      <form onSubmit={handleSubmit}>
-        <Labels>
-          <label>Name</label>
-          <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            placeholder="John Doe"
-            onChange={handleChanges}
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="johndoe@gmail.com"
-            onChange={handleChanges}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="min. 8 characters"
-            onChange={handleChanges}
-          />
-        </Labels>
-        <ThemeProvider theme={theme}>
-          <Button> Register </Button>
-        </ThemeProvider>
-      </form>
+      <Header>Header</Header>
+      <LoginForms>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Name </label>
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              placeholder="John Doe"
+              onChange={handleChanges}
+            />
+          </div>
+          <div>
+            <label>Email </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="johndoe@gmail.com"
+              onChange={handleChanges}
+            />
+          </div>
+          <div>
+            <label>Password </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="min. 8 characters"
+              onChange={handleChanges}
+            />
+          </div>
+
+          <button> Register </button>
+        </form>
+      </LoginForms>
+      <Footer>Footer</Footer>
     </Container>
   );
 };
