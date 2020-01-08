@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import "../../App.css";
 
 
-const WorkoutCard = () => {
+const Journal = () => {
   return (
-    <div className="card-container">
-      <div className="workout-card">
+    <div className="journal-container">
+      <div className="journal-card">
         <Link to="/entry" className="workout-card-link">
             <h1>Exercise Name</h1>
             <h2>Region</h2>
@@ -18,4 +18,4 @@ const WorkoutCard = () => {
   );
 };
 
-export default WorkoutCard;
+export default Journal;
