@@ -6,34 +6,34 @@ import styled, { ThemeProvider } from "styled-components";
 
 const Container = styled.body`
   display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
   width: 100vw;
-  justify-content: center;
 `;
 
 const Header = styled.header`
   display: flex;
-  height: 20%;
+  height: 15%;
   width: 100%;
   border: 1px solid red;
-  background: grey;
 `;
 
 const LoginForms = styled.div`
   display: flex;
   height: 50%;
-  width: 50%;
-  margin: 5em;
+  width: 25%;
+  margin: 5em 0 5em 0;
   padding: 3rem;
   justify-content: center;
   align-items: center;
-
   border: 1px solid red;
 `;
 
 const Footer = styled.footer`
   display: flex;
-
+  height: 15%;
+  width: 100%;
   border: 1px solid blue;
 `;
 
