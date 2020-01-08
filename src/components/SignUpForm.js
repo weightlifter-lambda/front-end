@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { register } from "../state/actions";
 import styled, { ThemeProvider } from "styled-components";
+import * as yup from 'yup';
 const theme = {
   colors: {
     yellow: "#FBB338",
@@ -62,9 +63,18 @@ const SignUpForm = props => {
   });
 
   const validateForm = () => {
-    if(user.email.length < 5 || user.password.length < 5) {
-      alert('You must enter a valid email and password');
-    }
+    let schema = yup.object().shape({
+      email: yup.string().email(),
+    });
+  
+    schema
+      .isValid({
+        email: user.email,
+      })
+      .then(function(valid) {
+        console.log(valid);
+        return valid;
+      });
   }
 
   const handleChanges = e => {
@@ -73,6 +83,7 @@ const SignUpForm = props => {
       [e.target.name]: e.target.value
     });
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     props.register(user);
@@ -118,7 +129,9 @@ const SignUpForm = props => {
               onChange={handleChanges}
             />
           </Fields>
+          {/* <Button> Register </Button> */}
           <Button onClick={validateForm}> Register </Button>
+
         </form>
       </Login>
       <Footer>footer</Footer>
