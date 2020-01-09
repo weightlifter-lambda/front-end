@@ -1,21 +1,15 @@
 import React, {useState, useEffect} from "react";
 import ExerciseCard from './ExerciseCard';
-import axios from 'axios';
+import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import "../../App.css";
 
 const ExerciseList = () => {
   const [token] = useState(localStorage.getItem("token"));
   const [data, setData] = useState();
 
-  // https://weight-lifting-journal-3.herokuapp.com/api/users
-  // https://weight-lifting-journal-3.herokuapp.com/api/journals/exercises/:userId/:id
-
   useEffect( () => {
-    axios.get('https://weight-lifting-journal-3.herokuapp.com/api/exercises', {
-      headers: {
-        authorization: token
-      }
-    })
+    axiosWithAuth()
+    .get('/exercises')
     .then(response => {
       console.log(response);
       setData(response.data);
