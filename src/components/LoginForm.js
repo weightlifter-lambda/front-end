@@ -59,7 +59,7 @@ const Fields = styled.div`
 const Button = styled.button`
   height: 2.2rem;
   width: 150px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-family: "Russo One";
   font-size: 1.2rem;
   border-radius: 10px;
