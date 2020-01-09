@@ -30,7 +30,8 @@ export const login = credentials => dispatch => {
       dispatch({
         type: types.LOGIN_SUCCESS,
         payload: res.data.token,
-        id: res.data.id
+        id: res.data.id,
+        message: res.data.message
       });
     })
     .catch(err => console.log(err));
