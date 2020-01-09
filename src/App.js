@@ -15,7 +15,7 @@ const App = props => {
         <Link to="/register">Register</Link>
         <Route exact path="/" render={props => <LoginForm {...props} />} />
         <Route path="/register" render={props => <SignUpForm {...props} />} />
-        <Route path="/entry" render={props => <ExerciseList {...props} />} />
+        <Route path="/journal/:id" render={props => <ExerciseList {...props} />} />
         <Switch>
           <PrivateRoute
             exact
