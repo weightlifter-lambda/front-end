@@ -46,7 +46,8 @@ const mainReducer = (state = initialState, action) => {
         fetchingData: false,
         isLoggedIn: true,
         id: action.id,
-        message: action.message
+        message: action.message,
+        error: ""
       };
 
     case types.LOGIN_FAIL:
@@ -109,11 +110,13 @@ const mainReducer = (state = initialState, action) => {
 
     case types.JOURNAL_START:
       return {
-        ...state
+        ...state,
+        fetchingData: true
       };
     case types.JOURNAL_SUCCESS:
       return {
         ...state,
+        fetchingData: false,
         data: action.payload,
         error: ""
       };
@@ -126,11 +129,13 @@ const mainReducer = (state = initialState, action) => {
 
     case types.NEW_JOURNAL_START:
       return {
-        ...state
+        ...state,
+        fetchingData: true
       };
     case types.NEW_JOURNAL_SUCCESS:
       return {
         ...state,
+        fetchingData: false,
         data: [...state.data, action.payload],
         error: ""
       };
@@ -160,12 +165,14 @@ const mainReducer = (state = initialState, action) => {
 
     case types.EDIT_JOURNAL_START:
       return {
-        ...state
+        ...state,
+        fetchingData: true
       };
 
     case types.EDIT_JOURNAL_SUCCESS:
       return {
         ...state,
+        fetchingData: false,
         data: state.data.map(i =>
           i.id === action.payload.id ? action.payload : i
         )
