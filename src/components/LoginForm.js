@@ -17,24 +17,32 @@ const Container = styled.body`
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: dimgrey;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    11deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(80, 78, 74, 1) 100%
+  );
 `;
 const Header = styled.header`
   display: flex;
   height: 15%;
   width: 100%;
-  border: 1px solid red;
-  background: grey;
+  justify-content: center;
+  font-family: "Russo One";
+  font-size: 4rem;
+  color: #fbb338;
+  background: black;
 `;
 const Login = styled.div`
   display: flex;
-  height: 50%;
+  height: 30%;
   width: 20%;
-  margin: 3em 0 5em 0;
-  padding: 3rem;
   justify-content: center;
   align-items: center;
-  border: 1px solid red;
+  margin: 3em 0 5em 0;
+  padding: 3rem;
+  font-family: "Russo One";
   border-radius: 10px;
   background: #fbb338;
 `;
@@ -46,7 +54,12 @@ const Fields = styled.div`
   font-family: "Russo One";
 `;
 const Button = styled.button`
+  height: 30%;
+  width: 75%;
+  margin-bottom: 20px;
   font-family: "Russo One";
+  font-size: 1.2rem;
+  border-radius: 5px;
   &:hover {
     background: #06a8ff;
   }
@@ -55,8 +68,8 @@ const Footer = styled.footer`
   display: flex;
   height: 15%;
   width: 100%;
-  border: 1px solid blue;
-  background: grey;
+  justify-content: center;
+  color: white;
 `;
 
 const LoginForm = props => {
@@ -68,8 +81,23 @@ const LoginForm = props => {
 
   const validateForm = () => {
     let schema = yup.object().shape({
-      email: yup.string().email()
+      email: yup.string().email("email"),
+      password: yup
+        .string()
+        .required()
+        .min(8, "bad password")
     });
+
+    schema
+      .isValid({
+        email: user.email,
+        password: user.password
+      })
+
+      .then(function(valid) {
+        console.log(valid);
+        return valid;
+      });
   };
   const handleChanges = e => {
     setUser({
@@ -86,27 +114,29 @@ const LoginForm = props => {
   };
   return (
     <Container>
-      <Header>header</Header>
+      <Header>Workout Logs</Header>
       <Login>
         <form onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            onChange={handleChanges}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            onChange={handleChanges}
-          />
+          <Fields>
+            <label>Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={handleChanges}
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={handleChanges}
+            />
+          </Fields>
           <Button onClick={validateForm}> Login </Button>
         </form>
       </Login>
-      <Footer>footer</Footer>
+      {/* <Footer>footer</Footer> */}
     </Container>
   );
 };
