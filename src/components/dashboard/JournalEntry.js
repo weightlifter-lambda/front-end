@@ -10,10 +10,10 @@ const JournalEntry = props => {
     <div className="journal-entry">
       <h1>{name}</h1>
       <p>{date}</p>
-      <button>Edit</button>
-      <button onClick={e => props.deleteJournal(id)}>Delete</button>
+      <button className="card-button">Edit</button>
+      <button className="card-button" onClick={e => props.deleteJournal(id)}>Delete</button>
       <Link to={`/journal/${id}`}>
-        <button>View Journal</button>
+        <button className="card-button">Journal</button>
       </Link>
     </div>
   );
