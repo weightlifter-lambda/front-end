@@ -15,7 +15,6 @@ const Dashboard = props => {
     props.logout();
     props.history.push("/");
   };
-  console.log(props.data);
 
   return (
     <div className="dashboard">
@@ -36,7 +35,6 @@ const Dashboard = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state.data);
   return {
     data: state.data
   };

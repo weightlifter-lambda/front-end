@@ -1,10 +1,15 @@
 import React from "react";
-import Journal from './Journal';
 import "../../App.css";
+
 
 const ExerciseCard = () => {
   return (
-    <Journal />
+    <div className="journal-container">
+      <div className="journal-card">
+            <h1>Name</h1>
+            <h1>Region</h1>
+      </div>
+    </div>
   );
 };
 
