@@ -3,14 +3,12 @@ import { connect } from "react-redux";
 import { deleteJournal } from "../../state/actions";
 import "../../App.css";
 
-const JournalEntry = props => {
-  const { name, date, id } = props.i;
+const JournalEntry = () => {
   return (
     <div className="journal-entry">
-      <h1>{name}</h1>
-      <p>{date}</p>
-      <button>Edit</button>
-      <button onClick={e => props.deleteJournal(id)}>Delete</button>
+        <h1>Exercise Name</h1>
+        <h2>Region</h2>
+        <p>Date</p>
     </div>
   );
 };

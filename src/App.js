@@ -5,7 +5,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import SignUpForm from "./components/SignUpForm";
 import LoginForm from "./components/LoginForm";
 import Dashboard from "./components/dashboard/Dashboard";
-import JournalEntry from "./components/dashboard/JournalEntry";
+import EditEntry from "./components/dashboard/EditEntry";
 import "./App.css";
 
 const App = props => {
@@ -15,7 +15,7 @@ const App = props => {
         <Link to="/register">Register</Link>
         <Route exact path="/" render={props => <LoginForm {...props} />} />
         <Route path="/register" render={props => <SignUpForm {...props} />} />
-        <Route path="/entry" render={props => <JournalEntry {...props} />} />
+        <Route path="/entry" render={props => <EditEntry {...props} />} />
         <Switch>
           <PrivateRoute
             exact
