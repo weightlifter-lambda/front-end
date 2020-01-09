@@ -36,11 +36,11 @@ const Header = styled.header`
 `;
 const Login = styled.div`
   display: flex;
-  height: 30%;
-  width: 20%;
+  height: 300px;
+  width: 200px;
   justify-content: center;
   align-items: center;
-  margin: 3em 0 5em 0;
+  margin: 6rem 0 3rem 0;
   padding: 3rem;
   font-family: "Russo One";
   border-radius: 10px;
@@ -54,12 +54,12 @@ const Fields = styled.div`
   font-family: "Russo One";
 `;
 const Button = styled.button`
-  height: 30%;
+  height: 2.2rem;
   width: 75%;
   margin-bottom: 20px;
   font-family: "Russo One";
   font-size: 1.2rem;
-  border-radius: 5px;
+  border-radius: 10px;
   &:hover {
     background: #06a8ff;
   }
