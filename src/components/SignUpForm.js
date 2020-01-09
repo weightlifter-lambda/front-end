@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { register } from "../state/actions";
 import styled, { ThemeProvider } from "styled-components";
-import * as yup from 'yup';
+import * as yup from "yup";
 const theme = {
   colors: {
     yellow: "#FBB338",
-    grey_main: "grey",
-    grey_hilite: "",
+    grey_main: "dimgrey",
+    grey_hilite: "grey",
     blue: "#06A8FF"
   }
 };
@@ -17,12 +17,14 @@ const Container = styled.body`
   align-items: center;
   height: 100vh;
   width: 100vw;
+  background: dimgrey;
 `;
 const Header = styled.header`
   display: flex;
   height: 15%;
   width: 100%;
   border: 1px solid red;
+  background: grey;
 `;
 const Login = styled.div`
   display: flex;
@@ -34,6 +36,7 @@ const Login = styled.div`
   align-items: center;
   border: 1px solid red;
   border-radius: 10px;
+  background: #fbb338;
 `;
 const Fields = styled.div`
   display: flex;
@@ -45,7 +48,7 @@ const Fields = styled.div`
 const Button = styled.button`
   font-family: "Russo One";
   &:hover {
-    background: yellow;
+    background: #06a8ff;
   }
 `;
 const Footer = styled.footer`
@@ -53,6 +56,7 @@ const Footer = styled.footer`
   height: 15%;
   width: 100%;
   border: 1px solid blue;
+  background: grey;
 `;
 const SignUpForm = props => {
   const [user, setUser] = useState({
@@ -65,17 +69,19 @@ const SignUpForm = props => {
   const validateForm = () => {
     let schema = yup.object().shape({
       email: yup.string().email(),
+      password: yup.string().required()
     });
-  
+
     schema
       .isValid({
         email: user.email,
+        password: user.password
       })
       .then(function(valid) {
         console.log(valid);
         return valid;
       });
-  }
+  };
 
   const handleChanges = e => {
     setUser({
@@ -131,7 +137,6 @@ const SignUpForm = props => {
           </Fields>
           {/* <Button> Register </Button> */}
           <Button onClick={validateForm}> Register </Button>
-
         </form>
       </Login>
       <Footer>footer</Footer>
