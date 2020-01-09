@@ -7,8 +7,11 @@ const ExerciseList = () => {
   const [token] = useState(localStorage.getItem("token"));
   const [data, setData] = useState();
 
+  // https://weight-lifting-journal-3.herokuapp.com/api/users
+  // https://weight-lifting-journal-3.herokuapp.com/api/journals/exercises/:userId/:id
+
   useEffect( () => {
-    axios.get('https://weight-lifting-journal-3.herokuapp.com/api/journals/exercises/:userId/:id', {
+    axios.get('https://weight-lifting-journal-3.herokuapp.com/api/exercises', {
       headers: {
         authorization: token
       }
@@ -22,9 +25,8 @@ const ExerciseList = () => {
     });
   }, []);
   
-
   return (
-    <div className="journal-entry">
+    <div className="exercise-list">
       <ExerciseCard data={data} />
     </div>
   );
