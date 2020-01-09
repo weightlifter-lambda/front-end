@@ -3,27 +3,29 @@ import ExerciseCard from './ExerciseCard';
 import axios from 'axios';
 import "../../App.css";
 
-const ExerciseList = props => {
-
-  const [id] = useState(+localStorage.getItem("id"));
-  const [userId] = useState({
-    userId: id
-  });
-  console.log(userId);
-
-  // https://weight-lifting-journal-3.herokuapp.com/api/journals/exercises/:userId/:id
+const ExerciseList = () => {
+  const [token] = useState(localStorage.getItem("token"));
+  const [data, setData] = useState();
 
   useEffect( () => {
-    axios
-      .get(`https://weight-lifting-journal-3.herokuapp.com/api/journals/exercises`)
-      .then( response => {
-        console.log(response);
-      })
-  })
+    axios.get('https://weight-lifting-journal-3.herokuapp.com/api/journals/exercises/:userId/:id', {
+      headers: {
+        authorization: token
+      }
+    })
+    .then(response => {
+      console.log(response);
+      setData(response.data);
+    })
+    .catch(error => {
+        console.log('DATA NOT RETURNED', error);
+    });
+  }, []);
+  
 
   return (
     <div className="journal-entry">
-      <ExerciseCard />
+      <ExerciseCard data={data} />
     </div>
   );
 };
