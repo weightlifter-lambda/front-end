@@ -34,10 +34,34 @@ const JournalEntry = props => {
 
   return (
     <div className="journal-entry">
-      <h1>{name}</h1>
-      <p>{date}</p>
-      <button className="card-button">Edit</button>
-      <button className="card-button" onClick={e => props.deleteJournal(id)}>Delete</button>
+      {editing ? (
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder={name}
+            onChange={handleChanges}
+          />
+          <input
+            type="date"
+            name="date"
+            placeholder={date}
+            onChange={handleChanges}
+          />
+          <button> Save </button>
+        </form>
+      ) : (
+        <>
+          <h1>{name}</h1>
+          <p>{date}</p>
+          <button onClick={isEditing} className="card-button">
+            Edit
+          </button>
+        </>
+      )}
+      <button className="card-button" onClick={e => props.deleteJournal(id)}>
+        Delete
+      </button>
       <Link className="card-button" to={`/journal/${id}`}>
         <div>Journal</div>
       </Link>

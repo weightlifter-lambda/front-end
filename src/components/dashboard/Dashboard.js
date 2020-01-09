@@ -22,19 +22,11 @@ const Dashboard = props => {
         <h1>Workout Dashboard</h1>
       </header>
       <JournalForm />
-<<<<<<< Updated upstream
       <div className="journal-entry-container">
         {props.data.map(i => (
-              <JournalEntry key={i.id} i={i} />
-          ))}
-      </div>
-=======
-      {props.data.map(i => (
-        <Link to="/entry" className="workout-card-link">
           <JournalEntry key={i.id} i={i} />
-        </Link>
-      ))}
->>>>>>> Stashed changes
+        ))}
+      </div>
       <button className="sign-out-btn" onClick={signOut}>
         Sign Out
       </button>
