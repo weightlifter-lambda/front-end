@@ -46,7 +46,8 @@ const mainReducer = (state = initialState, action) => {
         fetchingData: false,
         isLoggedIn: true,
         id: action.id,
-        message: action.message
+        message: action.message,
+        error: ""
       };
 
     case types.LOGIN_FAIL:
