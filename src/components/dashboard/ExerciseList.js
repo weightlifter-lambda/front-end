@@ -4,9 +4,7 @@ import {axiosWithAuth} from '../../utils/axiosWithAuth';
 import "../../App.css";
 
 const ExerciseList = () => {
-  const [token] = useState(localStorage.getItem("token"));
   const [data, setData] = useState();
-
   useEffect( () => {
     axiosWithAuth()
     .get('/exercises')
@@ -27,4 +25,3 @@ const ExerciseList = () => {
 };
 
 export default ExerciseList;
-

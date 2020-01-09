@@ -58,6 +58,9 @@ const JournalEntry = props => {
         </>
       )}
       <button onClick={e => props.deleteJournal(id)}>Delete</button>
+      <Link to={`/journal/${id}`}>
+        <button>View Journal</button>
+      </Link>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import "../../App.css";
 
 const ExerciseCard = props => {
   const data = props.data;
-  const exerciseList = () => {
+  const list = () => {
     if(data) {
       return (
         data.map(item => {
@@ -24,7 +24,7 @@ const ExerciseCard = props => {
 
   return (
       <div>
-        {exerciseList()}
+        {list()}
       </div>
   );
 };
