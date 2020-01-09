@@ -83,6 +83,19 @@ export const deleteJournal = data => dispatch => {
     );
 };
 
+export const editJournal = data => dispatch => {
+  dispatch({ type: types.EDIT_JOURNAL_START });
+  return axiosWithAuth()
+    .put(`/journals/${data.id}`, data)
+    .then(res => {
+      console.log(res.data.updated);
+      dispatch({ type: types.EDIT_JOURNAL_SUCCESS, payload: res.data.updated });
+    })
+    .catch(err =>
+      dispatch({ type: types.EDIT_JOURNAL_FAIL, payload: err.data })
+    );
+};
+
 // EXERCISE
 
 export const getExercise = () => dispatch => {

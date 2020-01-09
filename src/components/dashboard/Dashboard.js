@@ -22,11 +22,9 @@ const Dashboard = props => {
         <h1>Workout Dashboard</h1>
       </header>
       <JournalForm />
-        {props.data.map(i => (
-          <Link to="/entry" className="workout-card-link">
-              <JournalEntry key={i.id} i={i} />
-          </Link>
-        ))}
+      {props.data.map(i => (
+        <JournalEntry key={i.id} i={i} />
+      ))}
       <button className="sign-out-btn" onClick={signOut}>
         Sign Out
       </button>
