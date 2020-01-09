@@ -158,6 +158,25 @@ const mainReducer = (state = initialState, action) => {
         error: action.payload
       };
 
+    case types.EDIT_JOURNAL_START:
+      return {
+        ...state
+      };
+
+    case types.EDIT_JOURNAL_SUCCESS:
+      return {
+        ...state,
+        data: state.data.map(i =>
+          i.id === action.payload.id ? action.payload : i
+        )
+      };
+
+    case types.EDIT_JOURNAL_FAIL:
+      return {
+        ...state,
+        error: action.payload
+      };
+
     default:
       return state;
   }
