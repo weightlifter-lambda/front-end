@@ -45,7 +45,8 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         fetchingData: false,
         isLoggedIn: true,
-        id: action.id
+        id: action.id,
+        message: action.message
       };
 
     case types.LOGIN_FAIL:
@@ -61,7 +62,9 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         fetchingData: false,
         isLoggedIn: false,
-        id: ""
+        id: "",
+        data: [],
+        message: ""
       };
 
     // case types.GET_EXERCISE_START:

@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import { newJournal } from "../../state/actions";
 
 const JournalForm = props => {
-  const [id] = useState(props.id);
+  const [id] = useState(+localStorage.getItem("id"));
   const [state, setState] = useState({
     name: "",
     date: "",
     userId: id
   });
-
+  console.log(state);
   const handleChanges = e => {
     setState({
       ...state,
@@ -25,26 +25,26 @@ const JournalForm = props => {
 
   return (
     <form className="journal-form" onSubmit={handleSubmit}>
-    <div className="input-container">
-      <label>Name:</label>
-      <input
-        className="journal-form-input"
-        type="text"
-        name="name"
-        onChange={handleChanges}
-        placeholder="Name"
-      />
-    </div>
+      <div className="input-container">
+        <label>Name:</label>
+        <input
+          className="journal-form-input"
+          type="text"
+          name="name"
+          onChange={handleChanges}
+          placeholder="Name"
+        />
+      </div>
 
-    <div className="input-container">
-      <label>Date:</label>
-      <input
-        className="journal-form-input"
-        type="date"
-        name="date"
-        onChange={handleChanges}
-        placeholder="date"
-      />
+      <div className="input-container">
+        <label>Date:</label>
+        <input
+          className="journal-form-input"
+          type="date"
+          name="date"
+          onChange={handleChanges}
+          placeholder="date"
+        />
       </div>
       <button className="journal-form-btn">Submit</button>
     </form>

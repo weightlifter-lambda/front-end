@@ -26,10 +26,12 @@ export const login = credentials => dispatch => {
     .then(res => {
       console.log(res);
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("id", res.data.id);
       dispatch({
         type: types.LOGIN_SUCCESS,
         payload: res.data.token,
-        id: res.data.id
+        id: res.data.id,
+        message: res.data.message
       });
     })
     .catch(err => console.log(err));
@@ -43,10 +45,10 @@ export const logout = () => {
 
 // JOURNALS
 
-export const getJournal = () => dispatch => {
+export const getJournal = id => dispatch => {
   dispatch({ type: types.JOURNAL_START });
   return axiosWithAuth()
-    .get("/journals")
+    .get(`/journals/users/${id}`)
     .then(res => {
       console.log("HELLO", res.data);
       dispatch({ type: types.JOURNAL_SUCCESS, payload: res.data });

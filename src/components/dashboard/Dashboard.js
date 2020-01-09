@@ -7,7 +7,7 @@ import JournalEntry from "./JournalEntry";
 
 const Dashboard = props => {
   useEffect(() => {
-    props.getJournal();
+    props.getJournal(+localStorage.getItem("id"));
   }, []);
 
   const signOut = () => {
