@@ -24,8 +24,8 @@ const Dashboard = props => {
       <JournalForm />
       <div className="journal-entry-container">
         {props.data.map(i => (
-              <JournalEntry key={i.id} i={i} />
-          ))}
+          <JournalEntry key={i.id} i={i} />
+        ))}
       </div>
       <button className="sign-out-btn" onClick={signOut}>
         Sign Out
