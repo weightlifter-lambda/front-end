@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { logout, getJournal } from "../../state/actions";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import JournalForm from "./JournalForm";
 import JournalEntry from "./JournalEntry";
 
@@ -14,6 +15,7 @@ const Dashboard = props => {
     props.logout();
     props.history.push("/");
   };
+  console.log(props.data);
 
   return (
     <div className="dashboard">
@@ -21,12 +23,11 @@ const Dashboard = props => {
         <h1>Workout Dashboard</h1>
       </header>
       <JournalForm />
-      <div className="journal-form-container">
         {props.data.map(i => (
-          <JournalEntry key={i.id} i={i} />
+          <Link to="/entry" className="workout-card-link">
+              <JournalEntry key={i.id} i={i} />
+          </Link>
         ))}
-      </div>
-
       <button className="sign-out-btn" onClick={signOut}>
         Sign Out
       </button>
@@ -35,6 +36,7 @@ const Dashboard = props => {
 };
 
 const mapStateToProps = state => {
+  console.log(state.data);
   return {
     data: state.data
   };
