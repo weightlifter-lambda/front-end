@@ -26,6 +26,7 @@ export const login = credentials => dispatch => {
     .then(res => {
       console.log(res);
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("id", res.data.id);
       dispatch({
         type: types.LOGIN_SUCCESS,
         payload: res.data.token,
