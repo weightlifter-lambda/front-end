@@ -44,10 +44,10 @@ export const logout = () => {
 
 // JOURNALS
 
-export const getJournal = () => dispatch => {
+export const getJournal = id => dispatch => {
   dispatch({ type: types.JOURNAL_START });
   return axiosWithAuth()
-    .get("/journals")
+    .get(`/journals/users/${id}`)
     .then(res => {
       console.log("HELLO", res.data);
       dispatch({ type: types.JOURNAL_SUCCESS, payload: res.data });
