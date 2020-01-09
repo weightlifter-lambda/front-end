@@ -12,7 +12,7 @@ const App = props => {
   return (
     <Router>
       <div className="App">
-        <Link to="/register">Register</Link>
+        {/* <Link to="/register">Register</Link> */}
         <Route exact path="/" render={props => <LoginForm {...props} />} />
         <Route path="/register" render={props => <SignUpForm {...props} />} />
         <Route path="/journal/:id" render={props => <ExerciseList {...props} />} />
