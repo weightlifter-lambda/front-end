@@ -120,7 +120,7 @@ const SignUpForm = props => {
   };
   return (
     <Container>
-      <Header>Workout Logs</Header>
+      <Header>WorkOut Logs</Header>
       <Login>
         <form onSubmit={handleSubmit}>
           <Fields>

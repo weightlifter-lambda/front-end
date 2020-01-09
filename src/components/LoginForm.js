@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../state/actions";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import * as yup from "yup";
 const theme = {
@@ -26,9 +27,11 @@ const Container = styled.body`
 `;
 const Header = styled.header`
   display: flex;
+  flex-direction: column;
   height: 15%;
   width: 100%;
   justify-content: center;
+  align-items: center;
   font-family: "Russo One";
   font-size: 4rem;
   color: #fbb338;
@@ -55,11 +58,11 @@ const Fields = styled.div`
 `;
 const Button = styled.button`
   height: 2.2rem;
-  width: 75%;
+  width: 150px;
   margin-bottom: 30px;
   font-family: "Russo One";
   font-size: 1.2rem;
-  border-radius: 5px;
+  border-radius: 10px;
   &:hover {
     background: #06a8ff;
   }
@@ -112,9 +115,16 @@ const LoginForm = props => {
       props.history.push("/dashboard");
     }, 800);
   };
+
   return (
     <Container>
-      <Header>Workout Logs</Header>
+      <Header>
+        WorkOut Logs
+        <Button>
+          <Link to="/register"> Register </Link>
+        </Button>
+      </Header>
+
       <Login>
         <form onSubmit={handleSubmit}>
           <Fields>
