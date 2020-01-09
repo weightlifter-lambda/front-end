@@ -15,7 +15,6 @@ const Dashboard = props => {
     props.logout();
     props.history.push("/");
   };
-  console.log(props.data);
 
   return (
     <div className="dashboard">
@@ -23,11 +22,11 @@ const Dashboard = props => {
         <h1>Workout Dashboard</h1>
       </header>
       <JournalForm />
-        {props.data.map(i => (
-          <Link to="/entry" className="workout-card-link">
-              <JournalEntry key={i.id} i={i} />
-          </Link>
-        ))}
+      {props.data.map(i => (
+        <Link to="/entry" className="workout-card-link">
+          <JournalEntry key={i.id} i={i} />
+        </Link>
+      ))}
       <button className="sign-out-btn" onClick={signOut}>
         Sign Out
       </button>
@@ -36,7 +35,6 @@ const Dashboard = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state.data);
   return {
     data: state.data
   };
