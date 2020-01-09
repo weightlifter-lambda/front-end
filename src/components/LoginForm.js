@@ -28,7 +28,7 @@ const Container = styled.body`
 const Header = styled.header`
   display: flex;
   flex-direction: column;
-  height: 15%;
+  height: 150px;
   width: 100%;
   justify-content: center;
   align-items: center;
