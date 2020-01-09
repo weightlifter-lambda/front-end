@@ -1,20 +1,16 @@
 import * as types from "../types";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
-import { bindActionCreators } from "redux";
 
 // USER
 
 export const register = credentials => dispatch => {
-  console.log("actions", credentials);
   dispatch({ type: types.REGISTER_START });
   return axiosWithAuth()
     .post(`/auth/register`, credentials)
     .then(res => {
-      console.log(res);
       dispatch({ type: types.REGISTER_SUCCESS });
     })
     .catch(err => {
-      console.log("error", err);
       dispatch({ type: types.REGISTER_FAIL, payload: err.data });
     });
 };
@@ -24,7 +20,6 @@ export const login = credentials => dispatch => {
   return axiosWithAuth()
     .post(`/auth/login`, credentials)
     .then(res => {
-      console.log(res);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("id", res.data.id);
       dispatch({
@@ -34,7 +29,9 @@ export const login = credentials => dispatch => {
         message: res.data.message
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      dispatch({ type: types.LOGIN_FAIL, payload: err.data });
+    });
 };
 
 export const logout = () => {
@@ -50,7 +47,6 @@ export const getJournal = id => dispatch => {
   return axiosWithAuth()
     .get(`/journals/users/${id}`)
     .then(res => {
-      console.log("HELLO", res.data);
       dispatch({ type: types.JOURNAL_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -75,7 +71,6 @@ export const deleteJournal = data => dispatch => {
   return axiosWithAuth()
     .delete(`/journals/${data}`)
     .then(res => {
-      console.log("DELETED", res);
       dispatch({ type: types.DELETE_JOURNAL_SUCCESS, payload: data });
     })
     .catch(err =>
@@ -88,7 +83,6 @@ export const editJournal = data => dispatch => {
   return axiosWithAuth()
     .put(`/journals/${data.id}`, data)
     .then(res => {
-      console.log(res.data.updated);
       dispatch({ type: types.EDIT_JOURNAL_SUCCESS, payload: res.data.updated });
     })
     .catch(err =>
@@ -103,14 +97,14 @@ export const getExercise = () => dispatch => {
   return axiosWithAuth()
     .get("/exercises")
     .then(res => {
-      console.log(res);
       dispatch({ type: types.GET_EXERCISE_SUCCESS, payload: res.data });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      dispatch({ type: types.GET_EXERCISE_FAIL, payload: err.data });
+    });
 };
 
 export const newExercise = payload => dispatch => {
-  console.log("NEW EX", payload);
   dispatch({ type: types.NEW_EXERCISE_START });
   return axiosWithAuth()
     .post("/exercises", payload)
