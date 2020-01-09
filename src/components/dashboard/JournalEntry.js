@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+
 import { deleteJournal } from "../../state/actions";
 import "../../App.css";
 

@@ -1,10 +1,31 @@
 import React from "react";
-import Journal from './Journal';
 import "../../App.css";
 
-const ExerciseCard = () => {
+const ExerciseCard = props => {
+  const data = props.data;
+  const exerciseList = () => {
+    if(data) {
+      return (
+        data.map(item => {
+          return (
+            <div className="exercise-card-container">
+              <div className="card-item">
+                <p>{item.name}</p>
+              </div>
+              <div className="card-item">
+                <p>{item.region}</p>
+              </div>
+            </div>
+          )
+        })
+      );
+    }
+  }
+
   return (
-    <Journal />
+      <div>
+        {exerciseList()}
+      </div>
   );
 };
 
