@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { login } from "../state/actions";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import Loader from "react-loader-spinner";
 import styled, { ThemeProvider } from "styled-components";
 import * as yup from "yup";
+
 const theme = {
   colors: {
     yellow: "#FBB338",
@@ -111,10 +113,20 @@ const LoginForm = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.login(user);
+    // loginMessage();
     setTimeout(() => {
       props.history.push("/dashboard");
-    }, 800);
+    }, 500);
   };
+
+  // const loginMessage = () => {
+  //   console.log("logging", props.log);
+  //   if (props.log === true) {
+  //     alert(props.message);
+  //   }
+  // };
+
+  console.log(props.fetchingData);
 
   return (
     <Container>
@@ -124,6 +136,10 @@ const LoginForm = props => {
           <Link to="/register"> Register </Link>
         </Button>
       </Header>
+
+      {props.fetchingData && (
+        <Loader type="Puff" color="#FBB338" height={80} width={80} />
+      )}
 
       <Login>
         <form onSubmit={handleSubmit}>
