@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { register } from "../state/actions";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import * as yup from "yup";
 const theme = {
@@ -26,9 +27,11 @@ const Container = styled.body`
 `;
 const Header = styled.header`
   display: flex;
-  height: 15%;
+  flex-direction: column;
+  height: 150px;
   width: 100%;
   justify-content: center;
+  align-items: center;
   font-family: "Russo One";
   font-size: 4rem;
   color: #fbb338;
@@ -55,7 +58,7 @@ const Fields = styled.div`
 `;
 const Button = styled.button`
   height: 2.2rem;
-  width: 75%;
+  width: 150px;
   margin-bottom: 20px;
   font-family: "Russo One";
   font-size: 1.2rem;
@@ -120,7 +123,12 @@ const SignUpForm = props => {
   };
   return (
     <Container>
-      <Header>Workout Logs</Header>
+      <Header>
+        WorkOut Logs
+        <Button>
+          <Link to="/"> Login </Link>
+        </Button>
+      </Header>
       <Login>
         <form onSubmit={handleSubmit}>
           <Fields>
