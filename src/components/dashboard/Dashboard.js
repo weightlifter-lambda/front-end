@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { logout, getJournal } from "../../state/actions";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import Loader from "react-loader-spinner";
 import JournalForm from "./JournalForm";
 import JournalEntry from "./JournalEntry";
 
@@ -23,6 +23,10 @@ const Dashboard = props => {
       </header>
       <JournalForm />
       <div className="journal-entry-container">
+        {props.data.length === 0 ||
+          (props.fetchingData === true && (
+            <Loader type="Circles" color="#FBB338" height={80} width={80} />
+          ))}
         {props.data.map(i => (
           <JournalEntry key={i.id} i={i} />
         ))}
