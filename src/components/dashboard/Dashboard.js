@@ -36,6 +36,7 @@ const Dashboard = props => {
 
 const mapStateToProps = state => {
   return {
+    ...state,
     data: state.data
   };
 };

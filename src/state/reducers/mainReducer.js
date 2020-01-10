@@ -4,6 +4,7 @@ import * as types from "../types";
 // Initial State
 const initialState = {
   fetchingData: false,
+  log: true,
   isLoggedIn: false,
   addNewEx: false,
   error: "",
@@ -44,6 +45,7 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingData: false,
+        log: false,
         isLoggedIn: true,
         id: action.id,
         message: action.message,

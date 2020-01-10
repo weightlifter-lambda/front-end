@@ -111,10 +111,18 @@ const LoginForm = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.login(user);
+    // loginMessage();
     setTimeout(() => {
       props.history.push("/dashboard");
     }, 800);
   };
+
+  // const loginMessage = () => {
+  //   console.log("logging", props.log);
+  //   if (props.log === true) {
+  //     alert(props.message);
+  //   }
+  // };
 
   return (
     <Container>
